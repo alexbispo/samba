@@ -3,11 +3,11 @@
 var bigXml = require('big-xml');
 var xlsx = require('xlsx-writestream');
 
-var arguments = process.argv.splice(2);
-console.log(arguments);
+var args = process.argv.splice(2);
+console.log(args);
 
-var fileName = arguments[0];
-var tagArgs = arguments.splice(1);
+var fileName = args[0];
+var tagArgs = args.splice(1);
 console.log(tagArgs);
 
 var tags = ["^("];
@@ -29,17 +29,25 @@ var colunas = [];
 
 reader.on('record', function(record){
     var coluna = {};
-    // TODO ...
-    coluna[record.tag] = record.tag;
     
-    console.log(record);
+    Object.getOwnPropertyNames(record.attrs).forEach(function(p){
+        coluna[p] = record.attrs[p];
+    });
+    
+    record.children.forEach(function(child){
+        coluna[child.tag] = child.text;
+    });
+    
+    colunas.push(coluna);
 });
 
 reader.on('end', function(){
-    //console.log(colunas);
-    /*console.log("Criando xlsx...");
-    xlsx.write('teste.xlsx', records, function(err){
-        console.log("Ocorreu um erro: " + err);
-    });*/
+    console.log("building xlsx...");
+    xlsx.write('teste.xlsx', colunas, function(err){
+        if(err){
+            console.log(err);    
+        }
+    });
+    console.log("xlsx builded...");
 });
 

@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Alex Bispo de Oliveira",
+  "license": "MIT",
   "bin": {
     "samba": "./bin/index.js"
   },
