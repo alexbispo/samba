@@ -1,5 +1,5 @@
 # samba
-A simple CLI tool that converts XML to XLSX.
+A simple XML to XLSX converter.
 
 ## Requirements
 
