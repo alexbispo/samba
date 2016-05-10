@@ -9,6 +9,14 @@ A simple CLI tool that converts XML to XLSX.
 
  - To do...
  
+## Windows
+
+If you fail to install node-expat as a dependency of node-xmpp, please update node-xmpp as it doesn't use node-expat anymore.
+
+Dependencies for `node-gyp` https://github.com/TooTallNate/node-gyp#installation
+
+See https://github.com/astro/node-expat/issues/78 if you are getting errors about not finding `nan.h`.
+ 
 ## Usage
  
  - To do...
