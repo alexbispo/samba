@@ -10,7 +10,10 @@
   "author": "Alex Bispo de Oliveira <alexbispo.artes@gmail.com>",
   "license": "MIT",
   "bin": {
-    "samba": "./bin/index.js"
+    "samba": "./bin/samba.js"
+  },
+  "engines": {
+    "node": "4.4.2"
   },
   "dependencies": {
     "big-xml": "^0.7.0",
