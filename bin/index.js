@@ -19,7 +19,7 @@ tagArgs.forEach(function(tag, index, array){
     }
 });
 
-tags.push(")");
+tags.push(")$");
 
 console.log(tags.join(""));
 
@@ -43,7 +43,9 @@ reader.on('record', function(record){
 
 reader.on('end', function(){
     console.log("building xlsx...");
-    xlsx.write('teste.xlsx', colunas, function(err){
+    
+    var outFileName = fileName.slice(0, -4) + '.xlsx'
+    xlsx.write(outFileName, colunas, function(err){
         if(err){
             console.log(err);    
         }
